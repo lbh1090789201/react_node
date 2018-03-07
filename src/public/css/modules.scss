@@ -1,0 +1,76 @@
+/*
+* 公共组件样式
+*/
+$background: #EAEAEA;
+$borderColor: #D6D6D6;
+$color: #515763;
+
+/*************************弹窗样式 begin***********************/
+#page_pop_tips {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    color: $color;
+    font-size: 0.16rem;
+    .alert_pop_content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 86%;
+        background: $background;
+        border-radius: 5px;
+        .pop_info {
+            padding: 20px 32px;
+            min-height: 45px;
+            text-align: center;
+        }
+        .btn {
+            border-top: 1px solid $borderColor;
+        }
+        .pop_tip_alert_yes {
+            display: inline-block;
+            width: 100%;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+        }
+    }
+
+    .confirm_pop_content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 86%;
+        background: $background;
+        border-radius: 5px;
+        .pop_info {
+            padding: 20px 32px;
+            min-height: 45px;
+            text-align: center;
+        }
+        .btn {
+            border-top: 1px solid $borderColor;
+        }
+        .pop_tip_confirm_yes {
+            display: inline-block;
+            width: 50%;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+        }
+        .pop_tip_confirm_no {
+            display: inline-block;
+            width: 50%;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            box-shadow: 1px 0 0 $borderColor inset;
+        }
+    }
+}
+/*************************弹窗样式 end***********************/

@@ -1,0 +1,35 @@
+@import "./common";
+@import "./modules";
+
+body {
+
+  ul {
+    list-style: none;
+  }
+  #node_app {
+    background: #333;
+  }
+  .productBox {
+    background: green;
+    height: 400px;
+  }
+  .name {
+    color: yellow;
+    text-decoration: line-through; 
+  }
+  .active {
+    color: yellow;
+    text-decoration: line-through; 
+  }
+  .name——a {
+    color: red;
+  }
+  .img_show {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: url("../images/avatar.png") no-repeat center;
+  }
+}
+
+
