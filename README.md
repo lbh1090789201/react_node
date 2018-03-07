@@ -21,12 +21,12 @@
 - app.js express的配置文件
 
 2. 克隆项目
-git clone git@github.com:lbh1090789201/react_node.git
+	git clone git@github.com:lbh1090789201/react_node.git
 
 3. 项目运行
-(cnpm)npm install 
-(cnpm)npm run dev
-(cnpm)npm run start
+	(cnpm)npm install 
+	(cnpm)npm run dev
+	(cnpm)npm run start
 
 4. 打开项目
 http://127.0.0.1:3000
