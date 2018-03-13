@@ -1,35 +1,492 @@
 @import "./common";
 @import "./modules";
 
-body {
+$colorB: #5495e6;
+$colorW: #e1edfb;
+$gray: #b2b2b2;
+$backgroundW: #ffffff;
+$backgroundG: #efefef;
+$borderColor: #ededed;
 
-  ul {
-    list-style: none;
-  }
-  #node_app {
-    background: #333;
-  }
-  .productBox {
-    background: green;
-    height: 400px;
-  }
-  .name {
-    color: yellow;
-    text-decoration: line-through; 
-  }
-  .active {
-    color: yellow;
-    text-decoration: line-through; 
-  }
-  .name——a {
-    color: red;
-  }
-  .img_show {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background: url("../images/avatar.png") no-repeat center;
-  }
+body {
+  background: #efefef !important;
 }
 
 
+#node_app {
+  width: 100%;
+  height: 100%;
+  /*******************车票系统首页 begin***********************/
+  #ticketSystem_index {
+    height: 100%;
+    font-size: 0.16rem;
+    .page_content {
+      height: 100%;
+      .top_content {
+        padding-top: 0.6rem;
+        height: 1.6rem;
+        background: $colorB;
+        li {
+          width: 33.33%;
+          height: 100%;
+          float: left;
+          text-align: center;
+          a {
+            display: block;
+            padding-top: 0.15rem;
+            width: 1.2rem;
+            height: 1rem;
+            margin: 0 auto;
+            font-size: 0.16rem;
+            color: $colorW;
+            font-weight: bold;
+          }
+          a.active {
+            background: url("../images/icon_6.png") no-repeat center;
+            background-size: cover;
+            color: $colorB;
+          }
+          a i {
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin: 0 auto;
+            margin-bottom: 4px;
+          }
+        }
+        li:nth-child(1) a i {
+          background: url("../images/icon_18.png") no-repeat center;
+          background-size: cover;
+        }
+        li:nth-child(1) a.active i {
+          background: url("../images/icon_19.png") no-repeat center;
+          background-size: cover;
+        }
+        li:nth-child(2) a i {
+          background: url("../images/icon_7.png") no-repeat center;
+          background-size: cover;
+        }
+        li:nth-child(2) a.active i {
+          background: url("../images/icon_17.png") no-repeat center;
+          background-size: cover;
+        }
+        li:nth-child(3) a i {
+          background: url("../images/icon_8.png") no-repeat center;
+          background-size: cover;
+        }
+        li:nth-child(3) a.active i {
+          background: url("../images/icon_16.png") no-repeat center;
+          background-size: cover;
+        }
+      }
+      .ticket_main_cont {
+        background: $backgroundW;
+        padding: 0 17px 0.16rem 17px;
+      }
+      .ticket_type {
+        border-bottom: 1px solid $borderColor;
+        overflow: hidden;
+        li {
+          width: 50%;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          float: left;
+          text-align: center;
+          span {
+            display: block;
+            width: 1.2rem;
+            margin: 0 auto;
+          }
+          span.active {
+            box-shadow: 0 -2px 0 $colorB inset;
+          }
+        }
+      }
+      .ticket_place {
+        height: 0.44rem;
+        font-size: 0.20rem;
+        font-weight: 500;
+        color: #333333;
+        a.start_palce {
+          color: #333333;
+          display: inline-block;
+          width: 40%;
+          height: 0.44rem;
+          line-height: 0.44rem;
+          float: left;
+          border-bottom: 1px solid $borderColor;
+        }
+        span {
+          position: relative;
+          display: inline-block;
+          width: 20%;
+          height: 0.44rem;
+          float: left;
+          img {
+            width: 0.3rem;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        a.end_palce {
+          color: #333333;
+          display: inline-block;
+          width: 40%;
+          height: 0.44rem;
+          line-height: 0.44rem;
+          text-align: right;
+          float: left;
+          border-bottom: 1px solid $borderColor;
+        }
+      }
+      .ticket_date {
+        display: block;
+        height: 0.44rem;
+        font-size: 0.20rem;
+        font-weight: 500;
+        border-bottom: 1px solid $borderColor;
+        span:nth-child(1) {
+          display: inline-block;
+          width: 50%;
+          line-height: 0.44rem;
+          float: left;
+          color: #333333;
+        }
+        span:nth-child(2) {
+          position: relative;
+          display: inline-block;
+          width: 50%;
+          line-height: 0.44rem;
+          float: left;
+          text-align: right;
+          font-size: 0.14rem;
+          color: #999999;
+        }
+        span:nth-child(2)::after {
+          content: '';
+          display: block;
+          width: 0.09rem;
+          height: 0.4rem;
+          background: url("../images/icon_20.png") no-repeat center;
+          background-size: contain;
+          position: absolute;
+          right: 0;
+          top: 0.02rem;
+        }
+      }
+      .ticket_small_type {
+        height: 0.44rem;
+        font-size: 0.16rem;
+        font-weight: 500;
+        label {
+          display: block;
+          width: 1rem;
+          line-height: 0.44rem;
+        }
+        label:nth-child(1) {
+          float: left;
+        }
+        label:nth-child(2) {
+          float: right;
+          text-align: right;
+        }
+        i {
+          position: relative;
+          top: 0.01rem;
+          // left: 0.1rem;
+          display: inline-block;
+          width: 0.147rem;
+          height: 0.14rem;
+          border: 1px solid $borderColor;
+          margin-left: 0.1rem;
+        }
+        label.current i {
+          border: none;
+          background: url("../images/icon_21.png") no-repeat center;
+          background-size: cover;
+        }
+      }
+      .query_btn {
+        display: block;
+        width: 100%;
+        height: 0.37rem;
+        line-height: 0.37rem;
+        background-color: $colorB;
+        text-align: center;
+        color: #fff;
+        border-radius: 3px;
+      }
+    }
+  }
+  /*******************车票系统首页 end***********************/
+  /*******************首页底部导航 begin***********************/
+  #bottom_nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 0.5rem;
+      width: 100%;
+      background: #fafafa;
+      font-size: 0.12rem;
+      li {
+        width: 33.33%;
+        float: left;
+        text-align: center;
+        padding-top: 3px;
+        a i {
+          display: block;
+          width: 0.3rem;
+          height: 0.26rem;
+          margin: 0 auto;
+        }
+      }
+      li:nth-child(1) i {
+        background: url("../images/icon_15.png") no-repeat center;
+        background-size: cover;
+      }
+      li:nth-child(1) .active i {
+        background: url("../images/icon_12.png") no-repeat center;
+        background-size: cover;
+      }
+      li:nth-child(2) i {
+        background: url("../images/icon_11.png") no-repeat center;
+        background-size: cover;
+      }
+      li:nth-child(2) .active i {
+        background: url("../images/icon_14.png") no-repeat center;
+        background-size: cover;
+      }
+      li:nth-child(3) i {
+        background: url("../images/icon_13.png") no-repeat center;
+        background-size: cover;
+      }
+      li:nth-child(3) .active i {
+        background: url("../images/icon_10.png") no-repeat center;
+        background-size: cover;
+      }
+  }
+  /*******************首页底部导航 end***********************/
+  /*******************选择出发日期页 begin***********************/
+  header {
+    position: relative;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    width: 100%;
+    color: $colorW;
+    z-index: 10;
+    .fixed_style {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: $colorB;
+      padding-left: 0.4rem;
+    }
+    .btn_back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 0.4rem;
+      height: 0.4rem;
+      img {
+        position: relative;
+        top: -0.02rem;
+        width: 0.3rem;
+        height: 0.2rem;
+        margin-left: 0.07rem;
+      }
+    }
+    span.title {
+      display: inline-block;
+      height: 0.4rem;
+    }
+  }
+  #system_calendar {
+    section {
+      position: relative;
+      padding-top: 0.6rem;
+      height: 4rem;
+    }
+  }
+  .ant-fullcalendar-fullscreen {
+    .ant-fullcalendar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0.36rem;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .ant-select {
+        width: 50%;
+        border-bottom: 1px solid #d9d9d9;
+        text-align: center;
+        .ant-select-selection {
+          border: none;
+          outline: none;
+        }
+        .ant-select-selection:hover {
+          border: none !important;
+          border-radius: 0 !important;
+          // box-shadow: 1px 0 #d9d9d9 inset;
+          box-shadow: none;
+        }
+        .ant-select-selection:focus {
+          box-shadow: none;
+        }
+        .ant-select-selection__rendered {
+          margin: 0;
+        }
+        .ant-select-selection-selected-value {
+          width: 100%;
+        }
+      }
+      .ant-select:nth-child(2) {
+        box-shadow: 1px 0 #d9d9d9 inset;
+      }
+    }
+    .ant-radio-button-wrapper {
+      display: none !important;
+    }
+    .ant-fullcalendar-date {
+      height: 0.8rem;
+    }
+    .ant-select-dropdown-menu {
+      .ant-select-dropdown-menu-item {
+        padding: 0;
+        text-align: center;
+        line-height: 0.24rem;
+      }
+    }
+    .ant-fullcalendar-selected-day {
+      .ant-fullcalendar-date {
+        border-top-color: $colorB;
+        background: $colorB;
+        .ant-fullcalendar-value {
+          color: $colorW;
+        }
+      }
+    }
+    .ant-fullcalendar-date{
+      .ant-fullcalendar-content {
+        height: 0.4rem;
+      }
+    }
+  }
+  /*******************选择出发日期页 end***********************/
+  /*******************车票地点选择页 begin***********************/
+  #system_address {
+    position: relative;
+    background: #efefef;
+    height: 100%;
+    padding-top: 0.4rem;
+    .choose_input {
+      position: fixed;
+      left: 0;
+      top: 0.4rem;
+      width: 100%;
+      padding: 4px 6px;
+      border-bottom: 1px solid #d8d8d8;
+      z-index: 10;
+      background: $backgroundG;
+      p {
+        margin: 0;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        background: $backgroundW;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 0.14rem;
+        color: $gray;
+      }
+      input {
+        display: block;
+        margin: 0;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        width: 100%;
+        background: $backgroundW;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 0.14rem;
+        color: $gray;
+        outline: none;
+        border: none;
+      }
+    }
+    .address_content {
+      height: 100%;
+      overflow: hidden;
+    }
+    .address_left {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      p {
+        margin-bottom: 0;
+      }
+      .item_title {
+        font-size: 0.13rem;
+        height: 0.26rem;
+        line-height: 0.26rem;
+        padding-left: 0.13rem;
+      }
+      .item_content {
+        padding-left: 0.13rem;
+        padding-bottom: 0.1rem;
+        background: $backgroundW;
+        span {
+          margin-top: 0.1rem;
+          margin-right: 0.06rem;
+          font-size: 0.13rem;
+          display: inline-block;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          width: 0.79rem;
+          text-align: center;
+          border: 1px solid $borderColor;
+        }
+      }
+      .place_list {
+        ul {
+          padding-left: 0.13rem;
+          background: $backgroundW;
+        }
+        li {
+          border-bottom: 1px solid $borderColor;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          color: #333333;
+        }
+      }
+    }
+    .address_right {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 7%;
+      height: 100%;
+      background: $backgroundW;
+      ul {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translate(0, -50%);
+      }
+      li {
+        font-size: 0.1rem;
+        height: 0.2rem;
+        line-height: 0.2rem;
+        text-align: center;
+        color: #75a9eb;
+      }
+    }
+  }
+  /*******************车票地点选择页 end***********************/
+}

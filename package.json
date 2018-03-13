@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV=development && supervisor -i ./src/public ./src/bin/www",
+    "start": "set NODE_ENV=development && node ./src/bin/www",
+    "startDev": "set NODE_ENV=development && supervisor -i ./src/public,./src/dist ./src/bin/www",
     "dev": "webpack --progress --colors"
   },
   "dependencies": {
@@ -18,9 +19,11 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
+    "antd": "^3.2.3",
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-import": "^1.6.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",

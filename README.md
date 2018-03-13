@@ -24,19 +24,18 @@
 	git clone git@github.com:lbh1090789201/react_node.git
 
 3. 项目运行
-	(cnpm)npm install 
+	(cnpm)npm install
 	(cnpm)npm run dev
 	(cnpm)npm run start
 
 4. 打开项目
 http://127.0.0.1:3000
 
-5. 本次更新内容: 
-	1).完善store中的公共模块ajax状态state分支。
-	2).增加store中的公共模块弹出层layerUtils状态分支。
-	3).完善基于jquery扩展的验证方法。
-	4).完善架构文字描述说明。
+5. 本次更新内容:
+	1).增加store中的状态分支common, 用于处理组件跳转涉及的参数。
+	2).完善基于jquery扩展的方法，新增cookie/sessionStorage/localStorage的增删查改。
+	3).增加车票模块页面，已实现组件交互，缺少接口交互(由于需要整理api，后续耗时相对多点)(页面模拟智行，但又不完全一致)
+	4).去除本地mysql连接。
 6.	下次更新内容(由于本人是利用业余时间开发，故进程稍微慢点，请见谅)
 	1).去除mysql连接(基于练习项目，暂不存在mysql，启用本地数据库，不适合后期拓展，后期数据统一从第三方获取)
-	2).正式介入开发页面，优先开发出首页模块
-
+	2).继续开发车票模块系统。

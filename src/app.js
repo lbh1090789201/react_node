@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require("ejs");
+var webpack = require("webpack");
 
 var index = require('./routes/index');
 var json = require('./routes/json');
@@ -28,11 +29,10 @@ if(process.env.NODE_ENV == "production") {
   app.use(express.static(path.join(__dirname, '../src'),{maxAge:1000*60*60*30}));
   app.use(express.static(path.join(__dirname, 'tmp'),{maxAge:1000*60*60*30}));
 }else{
-  var webpack = require("webpack");
   let devMiddleWare = require('webpack-dev-middleware');
   let hotMiddleWare = require('webpack-hot-middleware');
   let webpackconfig = require('../webpack.config.js');
-  
+
   var compiler = webpack(webpackconfig);
   app.use(devMiddleWare(compiler,{
       publicPath: webpackconfig.output.publicPath,
@@ -43,12 +43,12 @@ if(process.env.NODE_ENV == "production") {
         chunks: false
       }
   }));
-  
+
   app.use(hotMiddleWare(compiler));
 }
 
 app.use('/', index);
-app.use('/app', index); // 设页面访问路由
+app.use('/mall', index); // 设页面访问路由
 app.use('/json', json); // 设置接口访问路由
 
 // catch 404 and forward to error handler

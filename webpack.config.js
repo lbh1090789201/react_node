@@ -8,14 +8,15 @@ var CopyWebpackPlugin = require('copy-webpack-plugin'); // 拷贝资源插件
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); // 抽离css样式，通过require引入的css，会被webpack打包到js中
 var ENV = process.env.npm_lifecycle_event; // 直接通过获取启动命令来判断开发/生产环境
 var isPro = process.env.NODE_ENV == "production";
-var publicPath = "http://127.0.0.1:3000/dist/";
+// var publicPath = "http://127.0.0.1:3000/dist/";
+var publicPath = "/dist/";
 var webpackHotMiddleware = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true';
 
 var config = {
     entry: {
         vendor1 : ["es5-shim", "es5-sham", "console-polyfill", "babel-polyfill", webpackHotMiddleware],
         vendor2 : ["jquery", "react", "react-dom", webpackHotMiddleware],
-        bundle : ["register", webpackHotMiddleware]
+        bundle : ["index", webpackHotMiddleware]
     },
     output: {
       path: path.resolve(__dirname, './src/dist'),
@@ -49,7 +50,7 @@ var config = {
             {
                 // 识别js中require引入的样式表，并将其转换和兼容处理
                 test: /\.(css|scss|sass)$/,
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
                 use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -101,12 +102,12 @@ var config = {
             jquery : path.join(__dirname, "node_modules/jquery/dist/jquery.min.js"),
             commonExt: path.resolve(__dirname, "./src/public/js/commonExt"),
 
-            register : path.resolve(__dirname, './src/public/components/register.jsx')
-        }    
+            index : path.resolve(__dirname, './src/public/components/index.jsx')
+        }
     },
     plugins: [
         // 配置全局标识
-        new webpack.DefinePlugin({ 
+        new webpack.DefinePlugin({
             "process.env": { NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development") }
         }),
         new webpack.LoaderOptionsPlugin({

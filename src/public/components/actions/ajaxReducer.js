@@ -12,8 +12,8 @@ const initState = {
 
 /**
  * 修改ajaxReducer分支的state
- * @param {*} state 
- * @param {*} action 
+ * @param {*} state
+ * @param {*} action
  */
 function ajaxReducer(state = initState, action) {
     console.log(state, action, 5566)
@@ -74,12 +74,12 @@ export function ajaxRequest(params, ctrlParam) {
             isloading: ctrlParams.isShowWait
         }
     })());
-    
+
     var xml = $.ajax({
         url: ctrlParams.url || config.api,
         type: ctrlParams.type,
-        data: params, 
-        timeout: config.ajaxTimeout || 3000, 
+        data: params,
+        timeout: config.ajaxTimeout || 3000,
         success: (json) => {
             store.dispatch((() => {
                 params.successFunc ? params.successFunc(json.info) : "";
@@ -151,12 +151,12 @@ export function ajaxPromise(params, ctrlParam) {
                 isloading: ctrlParams.isShowWait
             }
         })());
-        
+
         var xml = $.ajax({
             url: ctrlParams.url || config.api,
             type: ctrlParams.type,
             data: params, //{funcNo: "100000", id: 1}, // params, //
-            timeout: config.ajaxTimeout || 3000, 
+            timeout: config.ajaxTimeout || 3000,
             success: (json) => {
                 return store.dispatch({type: "AJAX_SUCCESS", data: json.data});
             },

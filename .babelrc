@@ -1,5 +1,8 @@
 {
     "presets": ["es2015", "react"],
+    "plugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+    ],
     "ignore": [
         "jquery.js",
         "jquery.min.js"

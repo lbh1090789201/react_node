@@ -5,17 +5,13 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let path = req.path;
   if(!(path.indexOf("/json") === 0 && path.indexOf("/json/") < 0)) {
-     res.redirect('/app/index');
+     res.redirect('/mall/ticketSystem/index');
   }
   return;
 });
 
-router.get('/app/*', function(req, res, next) {
+router.get('/mall/*', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
-
-
-
-
