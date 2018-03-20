@@ -4,18 +4,21 @@ import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import store from './actions/reducer';
 import 'public/js/common';
+import '../js/validatorUtils';
 
 // 引入样式
 import 'public/css/style';
 // 引入主组件
-import UserLogin from "./pages/userLogin";
+// import UserLogin from "./pages/userLogin";
 import TicketSystem from "./pages/ticketSystem/ticketSystem";
 import CalendarSystem from "./pages/ticketSystem/calendar";
 import Address from "./pages/ticketSystem/address";
 import IconSystem from "./pages/iconSystem";
 import MiscellStores from "./pages/miscellStores";
-import PopTips from "./modules/layerUtils";
-
+import TicketList from './pages/ticketSystem/ticketList';
+// import UserLogin from './pages/login/userLogin';
+import UserLogin from './pages/login/userLogin';
+console.log(TicketList, 888)
 class APP extends React.Component{
     constructor() {
         super();
@@ -35,6 +38,8 @@ class APP extends React.Component{
                       <Route path="/miscellStores/index" component={MiscellStores} />
                       <Route path="/ticketSystem/calendar" component={CalendarSystem} />
                       <Route path="/ticketSystem/address" component={Address} />
+                      <Route path="/ticketSystem/ticketList" component={TicketList} />
+                      <Route path="/login" component={ UserLogin } />
                   </Switch>
                 </div>
             </BrowserRouter>

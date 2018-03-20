@@ -21,6 +21,14 @@ class TicketSystem extends React.Component{
     handleCalendarClick() {
       this.props.handleCalendarClick({type: "redirect", from: "/ticketSystem/index"})
     }
+    handleSubmitBtn() {
+      this.props.handleCalendarClick({
+        method: this.props.history,
+        type: "redirect",
+        from: "/ticketSystem/index",
+        to: "/ticketSystem/ticketList"
+      })
+    }
     render() {
       const { ticketSystem } = this.props;
       let ticket_date = ticketSystem.ticket_date;
@@ -80,7 +88,7 @@ class TicketSystem extends React.Component{
                 <label className={ticketSystem.student_ticket ? "current" : ""} onClick={this.handleSmallType.bind(this, "student_ticket")}><span>学生票</span><i></i></label>
                 <label className={ticketSystem.spead_car ? "current" : ""} onClick={this.handleSmallType.bind(this, "spead_car")}><span>高铁动车</span><i></i></label>
               </div>
-              <a href="javascript:void(0);" className="query_btn">查询</a>
+              <a href="javascript:void(0);" className="query_btn" onClick={this.handleSubmitBtn.bind(this)}>查询</a>
             </div>
           </div>
           <BottomNav />

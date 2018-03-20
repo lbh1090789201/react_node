@@ -12,7 +12,8 @@ const initState = {
     ticket_place_end: "", // 结束点
     ticket_place_end_flag: "", // 城市标识
     choose_place_start: true, // 默认当前为选择出发点
-    historyChooseCity: []
+    historyChooseCity: [], // 已选择过的城市
+    tickets: [], // 车票信息集合
 };
 const historyChooseCity = $.getLStorage("historyChooseCity");
 if(historyChooseCity) {
@@ -41,6 +42,8 @@ export default function ticketSystemReducer(state=initState, action) {
           return Object.assign({}, state, {ticket_date: action.ticket_date});
         case "ticket_place_change" :
           return Object.assign({}, state, handleChoosePlace(action));
+        case "change_tickets_data" :
+          return Object.assign({}, state, {tickets: action.data});
         default:
             return state
     }

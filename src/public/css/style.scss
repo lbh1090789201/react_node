@@ -4,6 +4,7 @@
 $colorB: #5495e6;
 $colorW: #e1edfb;
 $gray: #b2b2b2;
+$red: #ec5a65;
 $backgroundW: #ffffff;
 $backgroundG: #efefef;
 $borderColor: #ededed;
@@ -11,7 +12,15 @@ $borderColor: #ededed;
 body {
   background: #efefef !important;
 }
-
+.blue {
+  color: $colorB;
+}
+.gray {
+  color: $gray;
+}
+.red {
+  color: $red;
+}
 
 #node_app {
   width: 100%;
@@ -277,6 +286,7 @@ body {
     width: 100%;
     color: $colorW;
     z-index: 10;
+    font-size: 0.16rem;
     .fixed_style {
       position: fixed;
       left: 0;
@@ -303,6 +313,16 @@ body {
     span.title {
       display: inline-block;
       height: 0.4rem;
+    }
+    p {
+      margin: 0;
+      i {
+        display: inline-block;
+        width: 0.3rem;
+        height: 0.1rem;
+        background: url("../images/icon_24.png") no-repeat center;
+        background-size: contain;
+      }
     }
   }
   #system_calendar {
@@ -489,4 +509,211 @@ body {
     }
   }
   /*******************车票地点选择页 end***********************/
+  /*******************车票列表页 start***********************/
+  #tickets_list {
+    section {
+      padding-top: 0.5rem;
+      padding-bottom: 0.4rem;
+      .top_nav {
+        margin: 0;
+        position: fixed;
+        top: 0.4rem;
+        left: 0;
+        background: $colorB;
+        width: 100%;
+        overflow: hidden;
+        padding: 0 0.18rem;
+        font-size: 0.12rem;
+        z-index: 10;
+        li {
+          float: left;
+          width: 30%;
+          height: 0.4rem;
+          color: $colorW;
+        }
+        li:nth-child(2) {
+          width: 40%;
+        }
+        .before_date {
+          display: inline-block;
+          height: 0.4rem;
+          line-height: 0.4rem;
+        }
+        .before_date::before {
+          content: '';
+          display: inline-block;
+          width: 0.15rem;
+          height: 0.09rem;
+          background: url("../images/icon_27.png") no-repeat left center;
+          background-size: contain;
+        }
+        .before_date.gray::before {
+          background: url("../images/icon_29.png") no-repeat left center;
+          background-size: contain;
+        }
+        .next_date {
+          display: inline-block;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          float: right;
+        }
+        .next_date::after {
+          content: '';
+          display: inline-block;
+          width: 0.15rem;
+          height: 0.09rem;
+          background: url("../images/icon_28.png") no-repeat right center;
+          background-size: contain;
+        }
+        a {
+          position: relative;
+          display: block;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          text-align: center;
+          background: $backgroundW;
+          border-radius: 3px;
+          margin-top: 0.05rem;
+          i {
+            position: absolute;
+            top: 0.105rem;
+            right: 0.1rem;
+            display: inline-block;
+            width: 0.1rem;
+            height: 0.1rem;
+            background: url("../images/icon_26.png") no-repeat right center;
+            background-size: contain;
+          }
+        }
+      }
+      .ticket_list {
+        background: $backgroundW;
+        margin-bottom: 0.06rem;
+      }
+      .ticket_info {
+        padding: 0.03rem 0.1rem 0.05rem 0.1rem;
+        border-bottom: 1px dashed $borderColor;
+        overflow: hidden;
+        margin: 0;
+        li {
+          float: left;
+          width: 25%;
+          text-align: center;
+        }
+        span {
+          display: block;
+          font-size: 0.15rem;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          // padding-top: 0.06rem;
+        }
+        .number_1 {
+          font-size: 0.18rem;
+          font-weight: 600;
+        }
+        .number_2 {
+          font-size: 0.18rem;
+        }
+        .number_3 {
+          display: inline;
+          font-size: 0.20rem;
+        }
+        .small {
+          font-size: 0.1rem;
+          color: #686868;
+        }
+        li:nth-child(1) {
+          text-align: left;
+        }
+        li:nth-child(2) {
+          background: url("../images/icon_25.png") no-repeat center;
+          background-size: 0.6rem 0.1rem;
+        }
+        p {
+          margin: 0;
+          position: relative;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          background: #FF8C00;
+          top: 0.16rem;
+          color: #fff;
+          border-radius: 3px;
+        }
+        p.gray {
+          background: #b2b2b2;
+        }
+      }
+      .ticket_seat {
+        margin: 0;
+        overflow: hidden;
+        padding: 0 0.1rem 0 0.1rem;
+        li {
+          width: 25%;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          float: left;
+          font-size: 0.12rem;
+        }
+        li:nth-child(2) {
+          text-align: center;
+        }
+        li:nth-child(3) {
+          text-indent: 0.15rem;
+        }
+        .no_ticket {
+          width: 100%;
+          span {
+            display: inline-block;
+            margin-left: 0.1rem;
+            font-size: 0.1rem;
+            background-color: $colorB;
+            color: #fff;
+            height: 0.2rem;
+            line-height: 0.2rem;
+            width: 0.4rem;
+            text-align: center;
+            border-radius: 10px;
+          }
+        }
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.4rem;
+        background: rgba(0,0,0,0.7);
+        ul {
+          margin: 0;
+          overflow: hidden;
+          height: 100%;
+        }
+        li {
+          padding-top: 0.1rem;
+          width: 25%;
+          float: left;
+          text-align: center;
+          color: #fff;
+        }
+        p {
+          margin: 0;
+          height: 0.2rem;
+          line-height: 0.2rem;
+        }
+        li + li p {
+          box-shadow: 1px 0 #64727d inset;
+        }
+        li span {
+          display: none;
+        }
+        li.up,li.down {
+          color: #5e8fc9;
+        }
+        li.up .up,li.down .down {
+          display: inline;
+        }
+      }
+    }
+  }
+  /*******************车票列表页 end***********************/
 }

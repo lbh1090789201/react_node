@@ -23,4 +23,19 @@ export const hotCities = [
   "昆山",
   "宁波"
 ];
+
+export function handleCity() {
+  let sesseionCity = {};
+  if($.getSStorage("cities")) {
+    sesseionCity = JSON.parse($.getSStorage("cities"));
+  } else {
+    addressData.station_names.map((station, index) => {
+      let arr = station.split("|");
+      sesseionCity[arr[2]] = arr[1];
+    });
+    $.setSStorage("cities", sesseionCity);
+  }
+  return sesseionCity;
+}
+
 export default addressData;

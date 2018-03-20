@@ -54,7 +54,7 @@ function ajaxReducer(state = initState, action) {
  *      errorFunc 请求失败时的回调
  *      successFunc 请求成功时的回调
  */
-export function ajaxRequest(params, ctrlParam) {
+export function ajaxRequest(params) {
     var ctrlParams = {
         isShowWait: true,
         isLastReq: true,
@@ -63,10 +63,10 @@ export function ajaxRequest(params, ctrlParam) {
         type: "POST",
         url: ""
     };
-    if(ctrlParam && $.validatorUtils.isJson(ctrlParam)) {
-        for(var key in ctrlParam) {
-            ctrlParams[key] = ctrlParam[key];
-        }
+    for(var key in params) {
+      if(key !== "data" && key !== "errorFunc" && key !== "successFunc") {
+        ctrlParams[key] = params[key];
+      }
     }
     store.dispatch((() => {
         return {
@@ -74,17 +74,14 @@ export function ajaxRequest(params, ctrlParam) {
             isloading: ctrlParams.isShowWait
         }
     })());
-
     var xml = $.ajax({
         url: ctrlParams.url || config.api,
         type: ctrlParams.type,
-        data: params,
+        data: params.data,
         timeout: config.ajaxTimeout || 3000,
         success: (json) => {
             store.dispatch((() => {
-                params.successFunc ? params.successFunc(json.info) : "";
-                // console.log(json.data, "ajax请求数据success")
-                // store.dispatch({type: "alert_show", info: "测试"})
+                params.successFunc ? params.successFunc(json) : "";
                 return {type: "AJAX_SUCCESS", data: json.data}
             })());
         },
@@ -94,10 +91,10 @@ export function ajaxRequest(params, ctrlParam) {
                 error_info = "网络超时";
             } else {
                 // 正常报错
-                error_info = json.info;
+                error_info = XMLHttpRequest.info;
             }
             // 判断是否需要弹窗
-            if(params.isShowPop) {
+            if(ctrlParams.isShowPop) {
                 store.dispatch({type: "alert_show", info: error_info});
             }
             // 判断是否有回调
@@ -129,7 +126,7 @@ export function ajaxRequest(params, ctrlParam) {
  *      errorFunc 请求失败时的回调
  *      successFunc 请求成功时的回调
  */
-export function ajaxPromise(params, ctrlParam) {
+export function ajaxPromise(params) {
     var ctrlParams = {
         isShowWait: true,
         isLastReq: true,
@@ -138,10 +135,10 @@ export function ajaxPromise(params, ctrlParam) {
         type: "POST",
         url: ""
     };
-    if(ctrlParam && $.validatorUtils.isJson(ctrlParam)) {
-        for(var key in ctrlParam) {
-            ctrlParams[key] = ctrlParam[key];
-        }
+    for(var key in params) {
+      if(key !== "data" && key !== "errorFunc" && key !== "successFunc") {
+        ctrlParams[key] = params[key];
+      }
     }
     return (dispatch, getState) => {
         console.log(store.getState(), "ajax请求数据ctrlParams")
@@ -155,7 +152,7 @@ export function ajaxPromise(params, ctrlParam) {
         var xml = $.ajax({
             url: ctrlParams.url || config.api,
             type: ctrlParams.type,
-            data: params, //{funcNo: "100000", id: 1}, // params, //
+            data: params.data, //{funcNo: "100000", id: 1}, // params, //
             timeout: config.ajaxTimeout || 3000,
             success: (json) => {
                 return store.dispatch({type: "AJAX_SUCCESS", data: json.data});
@@ -166,10 +163,10 @@ export function ajaxPromise(params, ctrlParam) {
                     error_info = "网络超时";
                 } else {
                     // 正常报错
-                    error_info = json.info;
+                    error_info = XMLHttpRequest.info;
                 }
                 // 判断是否需要弹窗
-                if(params.isShowPop) {
+                if(ctrlParams.isShowPop) {
                     store.dispatch({type: "alert_show", error_info});
                 }
                 return store.dispatch({type: "AJAX_FAIL", data: []});

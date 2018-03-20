@@ -67,8 +67,7 @@ class CalendarSystem extends React.Component {
     // 返回上一页
     this.props.handleRedirect({
       method: this.props.history,
-      type: "redirect",
-      to: "/ticketSystem/index"
+      type: "back"
     })
   }
   render() {

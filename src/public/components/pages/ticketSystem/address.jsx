@@ -55,7 +55,7 @@ class Address extends React.Component {
       to: "/ticketSystem/index"
     })
   }
-  handleChooseCity(event, boolean) {
+  handleChooseCity(boolean, event) {
     const {stateHistoryChooseCity, flag, name} = handleCityData(event, this, boolean);
     const { type } = this.state;
     this.props.handleChangeCity({
@@ -183,6 +183,7 @@ class Address extends React.Component {
 
 function handleCityData(event, _this, boolean) {
   const { ticketSystem } = _this.props;
+  console.log(event.target, 776666)
   let name = event.target.innerHTML || event.target.value,
       historyChooseCity = $.getLStorage("historyChooseCity"),
       stateHistoryChooseCity = ticketSystem.historyChooseCity,

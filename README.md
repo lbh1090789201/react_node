@@ -1,4 +1,4 @@
-该架构基于react+react-router+react-redux+express+webpack+es6+mysql+jquery(插件扩展)+scss技术，后期会引入nginx作为处理静态资源和反向代理。该框架目前还处于最基本的实现功能，主要有前端模块化，工程化功能，和热更新功能。后续优化中...
+该架构基于react+react-router+react-redux+antd+express+webpack+es6+mysql+jquery(插件扩展)+scss技术，后期会引入nginx作为处理静态资源和反向代理。该框架目前还处于最基本的实现功能，主要有前端模块化，工程化功能，和热更新功能。后续优化中...
 
 1. 架构目录说明
 - bin文件夹 node的启动文件
@@ -36,6 +36,7 @@ http://127.0.0.1:3000
 	2).完善基于jquery扩展的方法，新增cookie/sessionStorage/localStorage的增删查改。
 	3).增加车票模块页面，已实现组件交互，缺少接口交互(由于需要整理api，后续耗时相对多点)(页面模拟智行，但又不完全一致)
 	4).去除本地mysql连接。
+	5).引入antd。
 6.	下次更新内容(由于本人是利用业余时间开发，故进程稍微慢点，请见谅)
 	1).去除mysql连接(基于练习项目，暂不存在mysql，启用本地数据库，不适合后期拓展，后期数据统一从第三方获取)
 	2).继续开发车票模块系统。
