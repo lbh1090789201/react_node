@@ -133,11 +133,18 @@ import config from '../configuration';
             return;
          };
         if(typeof(key) == "string") {
-            window.sessionStorage.setItem(key, JSON.stringify(value));
+            if(typeof value == "object") {
+              value = JSON.stringify(value);
+            }
+            window.sessionStorage.setItem(key, value);
         }else{
             var json = key;
             for(var index in json) {
-                window.sessionStorage.setItem(index,  JSON.stringify(json[index]));
+                if(typeof json[index] == "object") {
+                  window.sessionStorage.setItem(index,  JSON.stringify(json[index]));
+                } else {
+                  window.sessionStorage.setItem(index,  json[index]);
+                }
             };
         }
     };
@@ -183,11 +190,18 @@ import config from '../configuration';
             return;
          };
         if(typeof(key) == "string") {
-            window.localStorage.setItem(key, JSON.stringify(value));
+            if(typeof value == "object") {
+              value = JSON.stringify(value);
+            }
+            window.localStorage.setItem(key, value);
         }else{
             var json = key;
             for(var index in json) {
-                window.localStorage.setItem(index,  JSON.stringify(json[index]));
+              if(typeof json[index] == "object") {
+                window.localStorage.setItem(index,  JSON.stringify(json[index]) + 222);
+              } else {
+                window.localStorage.setItem(index,  json[index] + 111);
+              }
             };
         }
     };
@@ -238,5 +252,4 @@ import config from '../configuration';
       getLStorage: getLStorage,
       deleteLStorage: deleteLStorage
     })
-    console.log($.getCookie, 88888)
 })(jQuery)

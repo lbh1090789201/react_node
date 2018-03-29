@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import addressData, { hotCities } from '../addressData';
+import addressData, { hotCities } from '../datas/addressData';
 import PopTips from '../../modules/layerUtils';
 const icon_23 = require("src/public/images/icon_23.png");
 

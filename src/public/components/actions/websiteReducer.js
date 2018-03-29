@@ -16,7 +16,6 @@ function websiteReducer(state = {count: 0}, action) {
 }
 
 export function onReduceClick(type, data) {
-    console.log(type, data, "测试")
     return type;
 };
 export default websiteReducer;

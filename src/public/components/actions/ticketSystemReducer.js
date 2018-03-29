@@ -15,11 +15,21 @@ const initState = {
     historyChooseCity: [], // 已选择过的城市
     tickets: [], // 车票信息集合
 };
+/**
+* 采用缓存数据
+*/
 const historyChooseCity = $.getLStorage("historyChooseCity");
 if(historyChooseCity) {
-  console.log(historyChooseCity, 454545)
   initState["historyChooseCity"] = JSON.parse(historyChooseCity);
 }
+const ticket_place_start = $.getLStorage("ticket_place_start");
+const ticket_place_start_flag = $.getLStorage("ticket_place_start_flag");
+const ticket_place_end = $.getLStorage("ticket_place_end");
+const ticket_place_end_flag = $.getLStorage("ticket_place_end_flag");
+initState["ticket_place_start"] = ticket_place_start;
+initState["ticket_place_start_flag"] = ticket_place_start_flag;
+initState["ticket_place_end"] = ticket_place_end;
+initState["ticket_place_end_flag"] = ticket_place_end_flag;
 
 /**
  * 用于TicketSystem模块
@@ -59,10 +69,14 @@ function handleChoosePlace(action) {
     if(action.choose_place_start && action.place) {
       json["ticket_place_start"] = action.place;
       json["ticket_place_start_flag"] = action.flag;
+      $.setLStorage("ticket_place_start", action.place);
+      $.setLStorage("ticket_place_start_flag", action.flag);
     }
     if(!action.choose_place_start && action.place) {
       json["ticket_place_end"] = action.place;
-        json["ticket_place_end_flag"] = action.flag;
+      json["ticket_place_end_flag"] = action.flag;
+      $.setLStorage("ticket_place_end", action.place);
+      $.setLStorage("ticket_place_end_flag", action.flag);
     }
     return json;
 }

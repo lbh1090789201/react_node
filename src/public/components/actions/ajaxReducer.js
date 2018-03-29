@@ -16,21 +16,20 @@ const initState = {
  * @param {*} action
  */
 function ajaxReducer(state = initState, action) {
-    console.log(state, action, 5566)
     switch (action.type) {
         case 'AJAX_START':
-            console.log(action, "ajax请求数据AJAX_START")
+            // console.log(action, "ajax请求数据AJAX_START")
             return Object.assign({}, state, {
                 isloading : action.isloading
             });
         case 'AJAX_SUCCESS':
-            console.log(action, "ajax请求数据AJAX_SUCCESS")
+            // console.log(action, "ajax请求数据AJAX_SUCCESS")
             return Object.assign({}, state, {
                 isloading : false,
                 items: action.data
             });
         case 'AJAX_FAIL':
-            console.log(action, "ajax请求数据AJAX_FAIL")
+            // console.log(action, "ajax请求数据AJAX_FAIL")
             return Object.assign({}, state, {
                 isloading : false,
                 items: action.data
@@ -141,7 +140,7 @@ export function ajaxPromise(params) {
       }
     }
     return (dispatch, getState) => {
-        console.log(store.getState(), "ajax请求数据ctrlParams")
+        // console.log(store.getState(), "ajax请求数据ctrlParams")
         store.dispatch((() => {
             return {
                 type: "AJAX_START",
@@ -172,7 +171,7 @@ export function ajaxPromise(params) {
                 return store.dispatch({type: "AJAX_FAIL", data: []});
             },
             complete: function(XMLHttpRequest,status) {
-                console.log(XMLHttpRequest.readyState,status, "ajax请求数据complete")
+                // console.log(XMLHttpRequest.readyState,status, "ajax请求数据complete")
                 if(status === "timeout") {
                     xml.abort(); // 超时后中断请求
                 }

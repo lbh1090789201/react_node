@@ -18,7 +18,7 @@ import MiscellStores from "./pages/miscellStores";
 import TicketList from './pages/ticketSystem/ticketList';
 // import UserLogin from './pages/login/userLogin';
 import UserLogin from './pages/login/userLogin';
-console.log(TicketList, 888)
+
 class APP extends React.Component{
     constructor() {
         super();
